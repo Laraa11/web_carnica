@@ -1,0 +1,5 @@
+[
+  { "id": 1, "nombre": "Juan", "apellidos": "Pérez García", "accesoWeb": true, "tipoAcceso": "Administrador" },
+  { "id": 2, "nombre": "María", "apellidos": "García López", "accesoWeb": true, "tipoAcceso": "Jefe de Sala" },
+  { "id": 3, "nombre": "Carlos", "apellidos": "Rodríguez Sánchez", "accesoWeb": false, "tipoAcceso": null }
+]
