@@ -1,66 +1,71 @@
 import { useState } from 'react'
-import { Button, AppBar, Toolbar, Typography, Container, Box } from '@mui/material'
 import OperariosPage from '../operarios1'
 import AsignacionPage from '../asignacion'
 import ValidacionPage from '../validacion'
 import ProductosPage from '../productos'
 import ResumenPage from '../resumen'
-import { MainContainer, NavContainer, StyledButton } from './main-styled'
-
+import { LogoutButton, MainContainer, NavButtonContainer, NavContainer, StyledButton, StyledLabel, Title } from './main-styled'
+import { FaTable } from "react-icons/fa";
+import { IoPeople } from "react-icons/io5";
+import { BsPersonCheckFill } from "react-icons/bs";
+import { GrTableAdd } from "react-icons/gr";
+import { IoMdPersonAdd } from "react-icons/io";
+import { IoExit } from "react-icons/io5";
 const Main = () => {
-  const [currentPage, setCurrentPage] = useState('asignacion')
-
+  const [currentPage, setCurrentPage] = useState("asignacion");
   const handleLogout = () => {
-    console.log('Cerrando sesión...')
-  }
+    console.log("Cerrando sesión...");
+  };
 
   const renderContent = () => {
     switch (currentPage) {
-      case 'asignacion':
-        return <AsignacionPage />
-      case 'validacion':
-        return <ValidacionPage />
-      case 'operarios':
-        return <OperariosPage />
-      case 'productos':
-        return <ProductosPage />
-      case 'resumen':
+      case "asignacion":
+        return <AsignacionPage />;
+      case "validacion":
+        return <ValidacionPage />;
+      case "operarios":
+        return <OperariosPage />;
+      case "productos":
+        return <ProductosPage />;
+      case "resumen":
       default:
-        return <ResumenPage />
+        return <ResumenPage />;
     }
-  }
+  };
 
   return (
-
     <MainContainer>
       <NavContainer>
-        <h2>Panel de Control</h2>
-        <NavButton label="Resumen" page="resumen" currentPage={currentPage} setCurrentPage={setCurrentPage} />
-        <NavButton label="Asignación" page="asignacion" currentPage={currentPage} setCurrentPage={setCurrentPage} />
-        <NavButton label="Productos" page="productos" currentPage={currentPage} setCurrentPage={setCurrentPage} />
-        <NavButton label="Validación" page="validacion" currentPage={currentPage} setCurrentPage={setCurrentPage} />
-        <NavButton label="Operarios" page="operarios" currentPage={currentPage} setCurrentPage={setCurrentPage} />
-        <Button color="inherit" onClick={handleLogout}>Cerrar Sesión</Button>
+        <Title>CARNICAZA</Title>
+        <NavButtonContainer>
+          <NavButton icon={<FaTable style={{fontSize : "20px"}}/>} label="Resumen" page="resumen" currentPage={currentPage} setCurrentPage={setCurrentPage} />
+          <NavButton icon= {<IoPeople style={{fontSize : "25px"}}/>} label="Asignación" page="asignacion" currentPage={currentPage} setCurrentPage={setCurrentPage} />
+          <NavButton icon={<GrTableAdd style={{fontSize : "20px"}}/>}label="Productos" page="productos" currentPage={currentPage} setCurrentPage={setCurrentPage} />
+          <NavButton icon={<BsPersonCheckFill style={{fontSize : "22px"}}/>} label="Validación" page="validacion" currentPage={currentPage} setCurrentPage={setCurrentPage} />
+          <NavButton icon = {<IoMdPersonAdd style={{fontSize : "25px"}}/>} label="Operarios" page="operarios" currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        </NavButtonContainer>
+        <LogoutButton 
+          type="default" 
+          onClick={handleLogout}>
+          <StyledLabel><IoExit style={{fontSize : "20px"}} />Cerrar Sesión</StyledLabel>
+        </LogoutButton>
       </NavContainer>
-      
-      {renderContent()}
-      </MainContainer>
 
-  )
-}
+      <div style={{ padding: "20px" }}>
+        {renderContent()}
+      </div>
+    </MainContainer>
+  );
+};
 
-function NavButton({ icon, label, page, currentPage, setCurrentPage }) {
+function NavButton({ label, icon, page, currentPage, setCurrentPage}) {
   return (
     <StyledButton
-      variant={currentPage === page ? 'contained' : 'outlined'}
-      color="white"
+      active={currentPage === page}
       onClick={() => setCurrentPage(page)}
-      startIcon={icon}
-      sx={{ textTransform: 'none' }}
     >
-      {label}
+      <StyledLabel>{icon} {label}</StyledLabel>
     </StyledButton>
-  )
+  );
 }
-
 export default Main;
