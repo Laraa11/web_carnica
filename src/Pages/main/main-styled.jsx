@@ -57,3 +57,11 @@ export const Title = styled.h2`
   font-weight: bold;
   margin: 0;
 `;
+
+export const PageContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  padding: 40px;
+`;

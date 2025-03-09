@@ -1,16 +1,17 @@
 import { useState } from 'react'
-import OperariosPage from '../operarios1'
-import AsignacionPage from '../asignacion'
-import ValidacionPage from '../validacion'
-import ProductosPage from '../productos'
-import ResumenPage from '../resumen'
-import { LogoutButton, MainContainer, NavButtonContainer, NavContainer, StyledButton, StyledLabel, Title } from './main-styled'
+import OperariosPage from '../operarios/index-operarios'
+import AsignacionPage from '../asignacion/index-asignacion'
+import ValidacionPage from '../validacion/index-validacion'
+import ProductosPage from '../productos/index-productos'
+import ResumenPage from '../resumen/index-resumen'
+import { LogoutButton, MainContainer, NavButtonContainer, NavContainer, StyledButton, StyledLabel, Title, PageContent } from './main-styled'
 import { FaTable } from "react-icons/fa";
 import { IoPeople } from "react-icons/io5";
 import { BsPersonCheckFill } from "react-icons/bs";
 import { GrTableAdd } from "react-icons/gr";
 import { IoMdPersonAdd } from "react-icons/io";
 import { IoExit } from "react-icons/io5";
+
 const Main = () => {
   const [currentPage, setCurrentPage] = useState("asignacion");
   const handleLogout = () => {
@@ -51,9 +52,9 @@ const Main = () => {
         </LogoutButton>
       </NavContainer>
 
-      <div style={{ padding: "20px" }}>
+      <PageContent>
         {renderContent()}
-      </div>
+      </PageContent>
     </MainContainer>
   );
 };
