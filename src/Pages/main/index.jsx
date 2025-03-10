@@ -4,7 +4,7 @@ import AsignacionPage from '../asignacion/index-asignacion'
 import ValidacionPage from '../validacion/index-validacion'
 import ProductosPage from '../productos/index-productos'
 import ResumenPage from '../resumen/index-resumen'
-import { LogoutButton, MainContainer, NavButtonContainer, NavContainer, StyledButton, StyledLabel, Title, PageContent } from './main-styled'
+import { LogoutButton, MainContainer, NavButtonContainer, NavContainer, StyledButton, StyledLabel, Title, PageContent} from './main-styled'
 import { FaTable } from "react-icons/fa";
 import { IoPeople } from "react-icons/io5";
 import { BsPersonCheckFill } from "react-icons/bs";

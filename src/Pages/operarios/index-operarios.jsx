@@ -1,8 +1,11 @@
 import React from 'react';
-import {PageContainer, DefaultTable} from '../general-styles';
+import { PageContainer, DefaultTable, PageTitle, CrudButton, StyledLabel, ContainerInLine, SearchInput } from '../general-styles';
 import { Space, Tag } from 'antd';
 import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { IoMdPersonAdd } from 'react-icons/io';
+
+
 
 const OperariosPage = () => {
   const columns = [
@@ -60,8 +63,8 @@ const OperariosPage = () => {
       key: 'action',
       render: (_, record) => (
         <Space size="middle">
-          <p><FaRegEdit style={{fontSize: '20px'}}/></p>
-          <p><MdDelete style={{fontSize: '20px'}}/></p>
+          <p><FaRegEdit style={{ fontSize: '20px' }} /></p>
+          <p><MdDelete style={{ fontSize: '20px' }} /></p>
         </Space>
       ),
     },
@@ -96,7 +99,16 @@ const OperariosPage = () => {
 
   return (
     <PageContainer>
-      <h1>Gestión de Operarios</h1>
+      <ContainerInLine>
+      <PageTitle>Alta operarios</PageTitle>
+      <SearchInput placeholder="Búsqueda operarios"/>
+      <CrudButton>
+        <StyledLabel>
+          <IoMdPersonAdd style={{ fontSize: "25px" }} />
+          Crear Operario
+        </StyledLabel>
+      </CrudButton>
+      </ContainerInLine>
       <DefaultTable columns={columns} dataSource={data} />
     </PageContainer>
   );

@@ -65,3 +65,4 @@ export const PageContent = styled.div`
   border-radius: 8px;
   padding: 40px;
 `;
+
