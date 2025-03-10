@@ -4,6 +4,10 @@ import { StyledButton } from './main/main-styled';
 import { Input } from 'antd';  
 const { Search } = Input;
 
+const grisOscuro = '#1d1d1d';
+const grisMedio = '#353535';
+const blancoAzul = '#f1f1f1';
+
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -16,7 +20,7 @@ export const PageContainer = styled.div`
 export const PageTitle = styled.h1`
   font-size: 24px;
   font-weight: bold;
-  color: #1d1d1d;
+  color: ${grisOscuro};
   margin-bottom: 20px;
   justify-content: left;
   align-items: left;
@@ -25,7 +29,7 @@ export const PageTitle = styled.h1`
 
 export const DefaultTable = styled(Table)` 
   width: 100% !important;
-  border: 1px solid #ddd !important;
+  border: 1px solid ${blancoAzul} !important;
   border-radius: 8px !important;
   justify-content: center;
   align-items: center;
@@ -33,21 +37,21 @@ export const DefaultTable = styled(Table)`
   th {
     font-size: 16px; 
     font-weight: bold;
-    color: #1d1d1d; 
+    color: ${grisOscuro}; 
     padding: 10px;
-    background-color: #f1f1f1 !important;
+    background-color: ${blancoAzul} !important;
   }
 `
 
 export const CrudButton = styled(StyledButton)`
-  background-color: #1d1d1d !important;
+  background-color: ${grisOscuro} !important;
   color: white !important;
   text-transform: none;
   border-radius: 5px ;
   padding: 8px 10px !important;
   width: 200px;
   &:hover {
-    background-color: #353535 !important;
+    background-color: ${grisMedio} !important;
   }
 `;
 

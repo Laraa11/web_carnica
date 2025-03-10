@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 import { Button } from '@mui/material'
-// import { Button} from 'antd';
+
+const grisOscuro = '#1d1d1d';
+const grisMedio = '#353535';
+const blancoAzul = '#f1f1f1';
+
 export const MainContainer = styled.div`
-  background-color: #f1f1f1;
+  background-color: ${blancoAzul};
 `;
 
 export const NavContainer = styled.div`
@@ -22,26 +26,26 @@ export const NavButtonContainer = styled.div`
 `;
 
 export const LogoutButton = styled(Button)`
-  color: #ffffff !important;
+  color: white !important;
   text-transform: none !important;
   border-radius: 5px !important;
   padding: 5px 10px !important;
-  background-color: #5a5a5a !important;
+  background-color: ${grisOscuro} !important;
 
   &:hover {
     color: white !important;
-    background-color: #353535 !important;
+    background-color: ${grisMedio} !important;
   }
 `;
 
 export const StyledButton = styled(Button)`
-  background-color: ${(props) => (props.active ? "#1d1d1d" : "transparent")} !important;
+  background-color: ${(props) => (props.active ? `${grisOscuro}` : "transparent")} !important;
   color: ${(props) => (props.active ? "white" : "black" )} !important;
   text-transform: none !important;
   border-radius: 5px !important;
   padding: 3px 10px !important;
   &:hover {
-    background-color: ${(props) => (props.active ? "#353535" : "#f1f1f1")} !important;
+    background-color: ${(props) => (props.active ? `${grisMedio}` : `${blancoAzul}`)} !important;
   }
 `;
 
