@@ -11,7 +11,7 @@ const blancoAzul = '#f1f1f1';
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 50px 100px;
+  padding: 30px 80px;
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -69,7 +69,15 @@ export const ContainerInLine = styled.div`
   width: 100%;
 `;
 
+
 export const SearchInput = styled(Search)`
-  width: 250px;
+  width: 300px;
   padding: 8px 10px !important;
+  .ant-input-search-button {
+    background-color: ${grisOscuro} !important;
+    border: none !important;
+  .anticon-search {
+    color: white !important; 
+  }
 `;
+

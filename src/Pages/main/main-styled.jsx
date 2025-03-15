@@ -13,9 +13,10 @@ export const NavContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 100px;
+  padding: 15px 50px;
   background-color: white;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  gap: 30px;
 `;
 
 export const NavButtonContainer = styled.div`
@@ -67,6 +68,5 @@ export const PageContent = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 8px;
-  padding: 40px;
+  padding: 40px;eeee
 `;
-
