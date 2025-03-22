@@ -23,7 +23,7 @@ const OperariosPage = () => {
       </ContainerInLine>
       <DefaultTable columns={columns} dataSource={usersList} />
       <CustomModal
-      title="Crear operario"
+      title="Crear operarios"
       open={modalVisible} 
       onOk={() => setModalVisible(false)}
       onCancel={() => setModalVisible(false)}
