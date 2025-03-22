@@ -7,6 +7,8 @@ const blancoAzul = '#f1f1f1';
 
 export const MainContainer = styled.div`
   background-color: ${blancoAzul};
+  width: 100%;
+  height: 100%;
 `;
 
 export const NavContainer = styled.div`
@@ -68,5 +70,5 @@ export const PageContent = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 8px;
-  padding: 40px;eeee
+  padding: 20px;
 `;

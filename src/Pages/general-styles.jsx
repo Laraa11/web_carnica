@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import {Table} from 'antd';
+import { Checkbox, Modal, Select, Table } from 'antd';
 import { StyledButton } from './main/main-styled';
-import { Input } from 'antd';  
+import { Input } from 'antd';
 const { Search } = Input;
 
 const grisOscuro = '#1d1d1d';
@@ -69,15 +69,92 @@ export const ContainerInLine = styled.div`
   width: 100%;
 `;
 
-
 export const SearchInput = styled(Search)`
-  width: 300px;
+  width: 250px;
   padding: 8px 10px !important;
+
   .ant-input-search-button {
     background-color: ${grisOscuro} !important;
     border: none !important;
-  .anticon-search {
-    color: white !important; 
+    padding: 17px 15px !important;
+
+    .anticon-search {
+      color: white !important;
+    }
+  }
+  .ant-input {
+    padding: 5px 15px !important;
+    &:hover {
+      background-color: #ffffff !important;
+    }
+    &:focus,
+    &:focus-within {
+      box-shadow: none !important;
+      background-color: #ffffff !important;
+      border-color: #000 !important;
+    }
+        &:hover {
+      border-color: #000 !important;
+    }
   }
 `;
 
+export const CrudInput = styled(Input)`
+padding: 8px 10px !important;
+width: 60%;
+  &:hover {
+    border-color: #000 !important;  
+    background-color: #ffffff !important;
+  }
+  &:focus,
+    &:focus-within {
+      border-color: #000 !important;
+      box-shadow: none !important;
+      background-color: #ffffff !important;
+    }
+  }
+`;
+
+export const CrudSelect = styled(Select)`
+  &:focus,
+    &:focus-within {
+      box-shadow: none !important;
+      background-color: #ffffff !important;
+    }
+  }
+    &.ant-select-focused .ant-select-selector {
+    box-shadow: none !important;
+    background-color: #ffffff !important;
+    
+    &:hover {
+      border-color: #000 !important; /* Borde negro solo en hover */
+    }
+  }
+`;
+
+export const CustomModal = styled(Modal)`
+
+  .ant-modal-footer {
+    .ant-btn-primary {
+      background-color:${grisOscuro}!important;
+      &:hover {
+        background-color:${grisMedio} !important;
+      }
+    }
+    .ant-btn-default {
+      background-color: #f1f1f1 !important;
+      border-color: #d9d9d9 !important;
+      &:hover {
+        background-color: #e0e0e0 !important;
+      }
+    }
+       &.ant-btn-dashed {
+    color: #1d1d1d !important;
+}
+  }
+`;
+
+export const CrudCheckBox = styled(Checkbox)`
+
+
+`;
