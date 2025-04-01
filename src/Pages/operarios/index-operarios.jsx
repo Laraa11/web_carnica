@@ -1,48 +1,45 @@
-import React, {useState} from 'react';
-import { PageContainer, DefaultTable, PageTitle, CrudButton, StyledLabel, ContainerInLine, SearchInput, StyledInput, CrudInput, CrudSelect, CustomModal, CrudCheckBox } from '../general-styles';
+import React, { useState } from 'react';
+import { PageContainer, DefaultTable, PageTitle, CrudButton, StyledLabel, ContainerHorizontal, SearchInput } from '../general-styles';
 import { IoMdPersonAdd } from 'react-icons/io';
 import { columns } from './utils/columns';
 import { usersList } from './utils/data';
-import { Checkbox, Modal } from "antd";
-import { Option } from 'antd/es/mentions';
+import ModalNewUser from './components/modalNewUser';
+import ModalEditUser from './components/modalEditUser';
 
 const OperariosPage = () => {
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalNewUserVisible, setModalNewUserVisible] = useState(false);
+  const [modalEditUserVisible, setModalEditUserVisible] = useState(false);
+  const [selectedUser, setSelectedUser] = useState('');
+
+  const handleEdit = (record) => {
+    console.log("Editar:", record);
+    setModalEditUserVisible(true);
+    setSelectedUser(record);
+  };
+
+  const handleDelete = (record) => {
+    console.log("Eliminar:", record);
+  };
+
   return (
     <PageContainer>
-      <ContainerInLine>
-      <PageTitle>Alta operarios</PageTitle>
-      <SearchInput placeholder="Búsqueda operarios"/>
-      <CrudButton
-        onClick={() => setModalVisible(true)}>
-        <StyledLabel>
-          <IoMdPersonAdd style={{ fontSize: "25px" }} />
-          Crear Operario
-        </StyledLabel>
-      </CrudButton>
-      </ContainerInLine>
-      <DefaultTable columns={columns} dataSource={usersList} />
-      <CustomModal
-      title="Crear operarios"
-      open={modalVisible} 
-      onOk={() => setModalVisible(false)}
-      onCancel={() => setModalVisible(false)}
-      okText="Crear"
-      cancelText="Cancelar"
-    >
-        <CrudInput placeholder="Nombre y Apellidos" />
-        <CrudInput placeholder="DNI" />
-        <ContainerInLine>
-        <CrudSelect defaultValue="administrador">
-          <Option value="administrador">Administrador</Option>
-          <Option value="operario">Jefe de sala</Option>
-          <Option value="operario">Operario</Option>
-        </CrudSelect>
-        <CrudCheckBox>Usuario con acceso personal</CrudCheckBox>
-        </ContainerInLine>
-    </CustomModal>
+      <ContainerHorizontal>
+        <PageTitle>Alta operarios</PageTitle>
+        <SearchInput placeholder="Búsqueda operarios" />
+        <CrudButton
+          onClick={() => setModalNewUserVisible(true)}>
+          <StyledLabel>
+            <IoMdPersonAdd style={{ fontSize: "25px" }} />
+            Crear Operario
+          </StyledLabel>
+        </CrudButton>
+      </ContainerHorizontal>
+      <DefaultTable columns={columns({ handleEdit, handleDelete })} dataSource={usersList} />
+      <ModalNewUser modalNewUserVisible={modalNewUserVisible} setModalNewUserVisible={setModalNewUserVisible} />
+      <ModalEditUser modalEditUserVisible={modalEditUserVisible} setModalEditUserVisible={setModalEditUserVisible} selectedUser={selectedUser}/>
     </PageContainer>
   );
 };
 
 export default OperariosPage;
+

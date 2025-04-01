@@ -5,7 +5,7 @@ import { PROFILES, PROFILES_COLORS } from '../../../Constants/profiles';
 import { FaCheckCircle } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 
-export const columns = [
+export const columns = ({ handleEdit, handleDelete }) => [
   {
     title: 'Nombre',
     dataIndex: 'name',
@@ -34,30 +34,30 @@ export const columns = [
       </>
     ),
   },
-  { 
+  {
     title: 'Acceso Web',
     key: 'webAccess',
     dataIndex: 'webAccess',
     render: (_, { webAccess }) => (
       <>
-      {webAccess.map((tag) => {
-        let Icon;
-        let color = 'green'; 
-        let size = '20px';
-        if (tag === 'Sin acceso') {
-          Icon = MdCancel;
-          color = '#c0392b ';
-          size = '24px';
-        } else {
-          Icon = FaCheckCircle ;
-        }
-        return (
-          <Space size="middle">
-            <Icon key={tag} style={{ color: color, fontSize: size }} />
-          </Space>
-        );
-      })}
-    </>
+        {webAccess.map((tag) => {
+          let Icon;
+          let color = 'green';
+          let size = '20px';
+          if (tag === 'Sin acceso') {
+            Icon = MdCancel;
+            color = '#c0392b ';
+            size = '24px';
+          } else {
+            Icon = FaCheckCircle;
+          }
+          return (
+            <Space size="middle">
+              <Icon key={tag} style={{ color: color, fontSize: size }} />
+            </Space>
+          );
+        })}
+      </>
     ),
   },
   {
@@ -65,8 +65,13 @@ export const columns = [
     key: 'action',
     render: (_, record) => (
       <Space size="middle">
-        <p><FaRegEdit style={{ fontSize: '20px' }} /></p>
-        <p><MdDelete style={{ fontSize: '20px' }} /></p>
+        <FaRegEdit
+          style={{ fontSize: '20px' }}
+          onClick={() => handleEdit(record)} />
+        <MdDelete
+          style={{ fontSize: '20px' }}
+          onClick={() => handleDelete(record)}
+        />
       </Space>
     ),
   },

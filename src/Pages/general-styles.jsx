@@ -62,10 +62,19 @@ export const StyledLabel = styled.div`
   font-size: 1rem;
 `;
 
-export const ContainerInLine = styled.div`
+export const ContainerHorizontal = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
+  width: 100%;
+  gap: 30px;
+`;
+
+export const ContainerVertical = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
   width: 100%;
 `;
 
@@ -84,73 +93,29 @@ export const SearchInput = styled(Search)`
   }
   .ant-input {
     padding: 5px 15px !important;
-    &:hover {
-      background-color: #ffffff !important;
-    }
     &:focus,
     &:focus-within {
       box-shadow: none !important;
-      background-color: #ffffff !important;
-      border-color: #000 !important;
-    }
-        &:hover {
-      border-color: #000 !important;
     }
   }
 `;
 
 export const CrudInput = styled(Input)`
 padding: 8px 10px !important;
-width: 60%;
-  &:hover {
-    border-color: #000 !important;  
-    background-color: #ffffff !important;
-  }
-  &:focus,
+width: 100%;
+&:focus,
     &:focus-within {
-      border-color: #000 !important;
       box-shadow: none !important;
-      background-color: #ffffff !important;
     }
-  }
 `;
 
 export const CrudSelect = styled(Select)`
-  &:focus,
-    &:focus-within {
-      box-shadow: none !important;
-      background-color: #ffffff !important;
-    }
-  }
-    &.ant-select-focused .ant-select-selector {
-    box-shadow: none !important;
-    background-color: #ffffff !important;
-    
-    &:hover {
-      border-color: #000 !important; /* Borde negro solo en hover */
-    }
-  }
 `;
 
 export const CustomModal = styled(Modal)`
-
-  .ant-modal-footer {
-    .ant-btn-primary {
-      background-color:${grisOscuro}!important;
-      &:hover {
-        background-color:${grisMedio} !important;
-      }
-    }
-    .ant-btn-default {
-      background-color: #f1f1f1 !important;
-      border-color: #d9d9d9 !important;
-      &:hover {
-        background-color: #e0e0e0 !important;
-      }
-    }
-       &.ant-btn-dashed {
-    color: #1d1d1d !important;
-}
+  width: fit-content !important;
+  .ant-modal-content {
+    padding: 30px !important;
   }
 `;
 
