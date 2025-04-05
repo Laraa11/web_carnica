@@ -5,7 +5,7 @@ const ModalNewUser = ({ modalNewUserVisible, setModalNewUserVisible }) => {
 
   return (
     <CustomModal
-      title="Alta nuevo operario"
+      title="Alta nuevo usuario"
       open={modalNewUserVisible}
       onOk={() => setModalNewUserVisible(false)}
       onCancel={() => setModalNewUserVisible(false)}
@@ -16,10 +16,10 @@ const ModalNewUser = ({ modalNewUserVisible, setModalNewUserVisible }) => {
         <CrudInput placeholder="Nombre y Apellidos" />
         <CrudInput placeholder="DNI" />
         <ContainerHorizontal>
-          <CrudSelect defaultValue="administrador">
-            <Option value="administrador">Administrador</Option>
-            <Option value="jefeSala">Jefe de sala</Option>
-            <Option value="operario">Operario</Option>
+          <CrudSelect defaultValue="ADMIN">
+            <Option value="ADMIN">Administrador</Option>
+            <Option value="JEFE_SALA">Jefe de sala</Option>
+            <Option value="OPERARIO">Operario</Option>
           </CrudSelect>
           <CrudCheckBox>Acceso Web</CrudCheckBox>
         </ContainerHorizontal>

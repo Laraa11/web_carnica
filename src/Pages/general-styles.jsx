@@ -101,15 +101,18 @@ export const SearchInput = styled(Search)`
 `;
 
 export const CrudInput = styled(Input)`
-padding: 8px 10px !important;
-width: 100%;
-&:focus,
+  padding: 8px 10px !important;
+  width: 100%;
+  &:focus,
     &:focus-within {
       box-shadow: none !important;
     }
 `;
 
 export const CrudSelect = styled(Select)`
+  &.ant-select-focused .ant-select-selector {
+    box-shadow: none !important;
+  }
 `;
 
 export const CustomModal = styled(Modal)`
@@ -117,9 +120,11 @@ export const CustomModal = styled(Modal)`
   .ant-modal-content {
     padding: 30px !important;
   }
+  .ant-btn-variant-solid {
+    box-shadow: none !important;
+  }
 `;
 
 export const CrudCheckBox = styled(Checkbox)`
-
 
 `;

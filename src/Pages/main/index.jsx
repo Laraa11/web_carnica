@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import OperariosPage from '../operarios/index-operarios'
+import UsuariosPage from '../usuarios/index-usuarios'
 import AsignacionPage from '../asignacion/index-asignacion'
 import ValidacionPage from '../validacion/index-validacion'
 import ProductosPage from '../productos/index-productos'
@@ -24,8 +24,8 @@ const Main = () => {
         return <AsignacionPage />;
       case "validacion":
         return <ValidacionPage />;
-      case "operarios":
-        return <OperariosPage />;
+      case "usuarios":
+        return <UsuariosPage />;
       case "productos":
         return <ProductosPage />;
       case "resumen":
@@ -43,7 +43,7 @@ const Main = () => {
           <NavButton icon= {<IoPeople style={{fontSize : "25px"}}/>} label="Asignación" page="asignacion" currentPage={currentPage} setCurrentPage={setCurrentPage} />
           <NavButton icon={<GrTableAdd style={{fontSize : "20px"}}/>}label="Productos" page="productos" currentPage={currentPage} setCurrentPage={setCurrentPage} />
           <NavButton icon={<BsPersonCheckFill style={{fontSize : "22px"}}/>} label="Validación" page="validacion" currentPage={currentPage} setCurrentPage={setCurrentPage} />
-          <NavButton icon = {<IoMdPersonAdd style={{fontSize : "25px"}}/>} label="Operarios" page="operarios" currentPage={currentPage} setCurrentPage={setCurrentPage} />
+          <NavButton icon = {<IoMdPersonAdd style={{fontSize : "25px"}}/>} label="Usuarios" page="usuarios" currentPage={currentPage} setCurrentPage={setCurrentPage} />
         </NavButtonContainer>
         <LogoutButton 
           type="default" 
