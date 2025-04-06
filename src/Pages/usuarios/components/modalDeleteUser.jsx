@@ -1,17 +1,12 @@
-import { Option } from 'antd/es/mentions';
 import {
-  CrudInput,
-  CrudSelect,
   CustomModal,
-  CrudCheckBox,
   ContainerVertical,
-  ContainerHorizontal
 } from '../../general-styles';
-import { Profiler, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const ModalDeleteUser = ({ modalEditUserVisible, setModalEditUserVisible, selectedUser }) => {
+const ModalDeleteUser = ({ modalDeleteUserVisible, setModalDeleteUserVisible, selectedUser }) => {
   const [profile, setProfile] = useState('');
-  
+
   useEffect(() => {
     if (selectedUser && selectedUser.profile && selectedUser.profile.length > 0) {
       if (selectedUser.profile[0] === 'JEFE_SALA') {
@@ -29,22 +24,23 @@ const ModalDeleteUser = ({ modalEditUserVisible, setModalEditUserVisible, select
 
   return (
     <CustomModal
-      title="Edición de usuario"
-      open={modalEditUserVisible}
-      onOk={() => setModalEditUserVisible(false)}
-      onCancel={() => setModalEditUserVisible(false)}
-      okText="Crear"
+      title="Borrar usuario"
+      open={modalDeleteUserVisible}
+      onOk={() => setModalDeleteUserVisible(false)}
+      onCancel={() => setModalDeleteUserVisible(false)}
+      okText="Borrar"
       cancelText="Cancelar"
     >
       <ContainerVertical>
-        <CrudInput value={selectedUser.name} />
-        <CrudInput value={selectedUser.dni} />
-        <ContainerHorizontal>
-        <CrudInput value={profile} />
-          <CrudCheckBox disabled checked={selectedUser?.webAccess?.includes('Con acceso')}>
-            Acceso Web
-          </CrudCheckBox>
-        </ContainerHorizontal>
+        {selectedUser.name}
+        <br></br>
+        {selectedUser.dni}
+        <br></br>
+        {profile}
+        <br></br>
+        {selectedUser?.webAccess?.includes('Con acceso') && (
+          <>Acceso Web: Sí</>
+        )}
       </ContainerVertical>
     </CustomModal>
   );
