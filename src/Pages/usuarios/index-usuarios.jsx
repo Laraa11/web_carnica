@@ -35,7 +35,7 @@ const UsuariosPage = () => {
   return (
     <PageContainer>
       <ContainerHorizontal>
-        <PageTitle>Alta usuarios</PageTitle>
+        <PageTitle>Gestión usuarios</PageTitle>
         <SearchInput 
           placeholder="Búsqueda usuarios" 
           value={searchUser}
