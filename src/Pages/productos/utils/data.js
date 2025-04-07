@@ -5,7 +5,7 @@ export const productsList = [
     minkg: 50,
     prize: 5,
     initialDate: '2023-10-01',
-    endDate: '2023-10-31',
+    endDate: '2023-11-30',
   },
   {
     key: '2',
@@ -88,4 +88,3 @@ export const productsList = [
     endDate: '2024-10-31',
   },
 ];
-

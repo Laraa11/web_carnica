@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 
-export const columns = ({ handleEdit, handleDelete}) => [
+export const columns = ({ handleEdit, handleDelete, productsListFormatted}) => [
   {
     title: 'Nombre',
     dataIndex: 'name',
@@ -14,21 +14,19 @@ export const columns = ({ handleEdit, handleDelete}) => [
     title: 'Kg mínimos',
     dataIndex: 'minkg',
     key: 'minkg',
-    render: (text) => <p>{text}</p>,
+    render: (text) => <p>{text} {"kg"}</p>,
   },
   {
     title: 'Precio/Kg',
     key: 'prize',
     dataIndex: 'prize',
-    render:(text) => <p>{text}</p>,
+    render:(text) => <p>{text} {"€"}</p>,
   },
   {
     title: 'Rango de fechas',
-    key: 'rageDate',
-    dataIndex: 'rageDate',
-    render:(_, record) => {
-      <p>{dayjs(record.initialDate).format('DD MMM YYYY')} - {dayjs(record.endDate).format('DD MMM YYYY')}</p>
-    }
+    key: 'rangeDate',
+    dataIndex: 'rangeDate',
+    render:(text) => <p>{text}</p>,
   },
   {
     title: 'Acción',

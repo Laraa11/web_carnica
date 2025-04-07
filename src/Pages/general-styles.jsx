@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { Checkbox, Modal, Select, Table } from 'antd';
+import { Checkbox, Modal, Select, Table, Input, DatePicker } from 'antd';
 import { StyledButton } from './main/main-styled';
-import { Input } from 'antd';
+
 const { Search } = Input;
 
 const grisOscuro = '#1d1d1d';
@@ -134,4 +134,12 @@ export const CustomModal = styled(Modal)`
 
 export const CrudCheckBox = styled(Checkbox)`
 
+`;
+
+export const CrudSelectDate = styled(DatePicker)`
+  padding: 8px 10px !important;
+  &:focus,
+  &:focus-within {
+    box-shadow: none !important;
+  }
 `;
