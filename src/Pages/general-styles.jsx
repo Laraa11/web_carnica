@@ -29,11 +29,18 @@ export const PageTitle = styled.h1`
 
 export const DefaultTable = styled(Table)` 
   width: 100% !important;
-  border: 1px solid ${blancoAzul} !important;
   border-radius: 8px !important;
   justify-content: center;
   align-items: center;
   display: flex;
+
+  .ant-table-container {
+  border-left: 1px solid #f1f1f1;
+  border-right: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
+  border-top: none;
+  }
+  
   th {
     font-size: 16px; 
     font-weight: bold;

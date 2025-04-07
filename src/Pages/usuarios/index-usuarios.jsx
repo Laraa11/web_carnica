@@ -5,13 +5,11 @@ import { columns } from './utils/columns';
 import { usersList } from './utils/data';
 import ModalNewUser from './components/modalNewUser';
 import ModalEditUser from './components/modalEditUser';
-import ModalDeleteUser from './components/modalDeleteUser';
 
 const UsuariosPage = () => {
   const [modalNewUserVisible, setModalNewUserVisible] = useState(false);
   const [modalEditUserVisible, setModalEditUserVisible] = useState(false);
-  const [modalDeleteUserVisible, setModalDeleteUserVisible] = useState(false);
-
+  const [searchUser, setSearchUser] = useState('');
   const [selectedUser, setSelectedUser] = useState('');
 
   const handleEdit = (record) => {
@@ -22,15 +20,27 @@ const UsuariosPage = () => {
 
   const handleDelete = (record) => {
     console.log("Delete:", record);
-    setModalDeleteUserVisible(true);
-    setSelectedUser(record);
   };
+
+  const handleSearch = (e) => {
+    setSearchUser(e.target.value.toLowerCase());
+  }
+
+  const filteredUsers = usersList.filter(user =>
+    user.name.toLowerCase().includes(searchUser) ||
+    user.dni.toString().includes(searchUser)
+  );
+  
 
   return (
     <PageContainer>
       <ContainerHorizontal>
         <PageTitle>Alta usuarios</PageTitle>
-        <SearchInput placeholder="Búsqueda usuarios" />
+        <SearchInput 
+          placeholder="Búsqueda usuarios" 
+          value={searchUser}
+          onChange={handleSearch}
+        />
         <CrudButton
           onClick={() => setModalNewUserVisible(true)}>
           <StyledLabel>
@@ -39,11 +49,9 @@ const UsuariosPage = () => {
           </StyledLabel>
         </CrudButton>
       </ContainerHorizontal>
-      <DefaultTable columns={columns({ handleEdit, handleDelete })} dataSource={usersList} />
+      <DefaultTable columns={columns({ handleEdit, handleDelete })} dataSource={filteredUsers} />
       <ModalNewUser modalNewUserVisible={modalNewUserVisible} setModalNewUserVisible={setModalNewUserVisible} />
-      <ModalEditUser modalEditUserVisible={modalEditUserVisible} setModalEditUserVisible={setModalEditUserVisible} selectedUser={selectedUser}/>
-      <ModalDeleteUser modalDeleteUserVisible={modalDeleteUserVisible} setModalDeleteUserVisible={setModalDeleteUserVisible} selectedUser={selectedUser}/>
-
+      <ModalEditUser modalEditUserVisible={modalEditUserVisible} setModalEditUserVisible={setModalEditUserVisible} selectedUser={selectedUser} />
     </PageContainer>
   );
 };

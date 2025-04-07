@@ -1,4 +1,4 @@
-import { Space, Tag } from 'antd';
+import { Popconfirm, Space, Tag } from 'antd';
 import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { PROFILES, PROFILES_COLORS } from '../../../Constants/profiles';
@@ -52,9 +52,18 @@ export const columns = ({ handleEdit, handleDelete }) => [
             Icon = FaCheckCircle;
           }
           return (
-            <Space size="middle">
-              <Icon key={tag} style={{ color: color, fontSize: size }} />
-            </Space>
+            <div
+              key={tag}
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100%',
+                width: '100%',
+              }}
+            >
+              <Icon key={tag} style={{ color: color, fontSize: size, alignItems: 'center', justifyContent: 'center' }} />
+            </div>
           );
         })}
       </>
@@ -68,10 +77,15 @@ export const columns = ({ handleEdit, handleDelete }) => [
         <FaRegEdit
           style={{ fontSize: '20px' }}
           onClick={() => handleEdit(record)} />
-        <MdDelete
-          style={{ fontSize: '20px' }}
-          onClick={() => handleDelete(record)}
-        />
+        <Popconfirm
+          okText={"Sí"}
+          cancelText={"No"}
+          title={"¿Seguro que quiere borrar el usuario?"}
+          onConfirm={() => handleDelete(record)}>
+          <MdDelete
+            style={{ fontSize: '20px' }}
+          />
+        </Popconfirm>
       </Space>
     ),
   },
