@@ -58,7 +58,7 @@ const filteredProducts = productsList
       <ContainerHorizontal>
         <PageTitle>Gestión Productos</PageTitle>
         <SearchInput
-          placeholder="Búsqueda usuarios"
+          placeholder="Búsqueda de productos"
           value={searchProduct}
           onChange={handleSearch}
         />
